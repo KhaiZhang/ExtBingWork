@@ -1,0 +1,106 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="css/ext-all.css"/>
+
+    <!-- GC -->
+    <!-- LIBS -->
+    <script type="text/javascript" src="ext-base.js"></script>
+    <!-- ENDLIBS -->
+
+    <script type="text/javascript" src="ext-all.js"></script>
+    <script>
+        Ext.onReady(function(){
+        let config = {
+          renderTo: 'test',
+          cls:'container',
+          layout:'column',
+          items:[{
+            xtype: 'box',
+            height: 40,
+            columnWidth: .25,
+            autoEl: {
+              tag: 'img',
+              src: 'bing.png'
+            },
+            cls:'img'
+          },
+          {
+            columnWidth: .75,
+            xtype:'container',
+            items:[{
+              xtype: 'tabpanel',
+              activeTab:"tab1",
+              plain:true,
+              items:[
+                  {
+                    id: 'tab1',
+                    title: '国内版'
+                  },
+                  {
+                    id: 'tab2',
+                    title: '国际版'
+                  }
+              ],
+              cls:'tabpanel'
+            },
+            {
+              xtype:'container',
+              layout:'column',
+              cls:'inputText',
+              items:[{
+                columnWidth: .9,
+                xtype:'field',
+                cls:'field',
+                borders:false,
+                bodyBorder:false
+              },{
+                columnWidth: .1,
+                xtype:'container',
+                cls:'search',
+                hideBorders:true
+              }]
+            }]
+          }],
+        }
+        let container = new Ext.Container(config)
+      });           
+    </script>
+</head>
+<style>
+  .container{
+    width:800px;
+    margin-top: 30px;
+    margin-left: 100px;
+  }
+  .tabpanel{
+    background: transparent !important;
+    margin-left: 10px;
+  }
+  .field{
+    width: 590px;
+    height: 45px;
+    background-color: white;
+    border: 0px white solid;
+  }
+  .img{
+    margin-top:25px;
+  }
+  body{
+    background: url(th.jpg) no-repeat;
+  }
+  .search{
+    /* margin-left: 1px; */
+    height: 45px;
+    background: url(search.png) no-repeat;
+  }
+  .inputText{
+    background-color: white;
+    margin-left: 10px;
+  }
+</style>
+<body id="docbody">
+    <div id='test'></div>
+</body>
+</html>
